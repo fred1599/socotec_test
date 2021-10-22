@@ -1,0 +1,56 @@
+[
+  {
+    "model": "movie.movie",
+    "pk": 1,
+    "fields": {
+      "title": "We Eat Socca Here",
+      "description": "L’histoire cachée d’une spécialité locale salée, qui ne se trouve que sur la Côte d’Azur et dans la région. La socca jouit d’une importance historique et culturelle dont la portée l’emporte largement sur ses quatre ingrédients simples et rustiques.",
+      "actors": [1, 2, 3, 4]
+    }
+  },
+  {
+    "model": "movie.movie",
+    "pk": 2,
+    "fields": {
+      "title": "Varda par Agnès",
+      "description": "Documentaire imprévisible et fascinant, le nouveau long métrage documentaire d’Agnès Varda met en lumière son expérience en tant que réalisatrice, présentant un aperçu personnel de ce qu’elle appelle « la ciné-écriture ». La « Reine du cinéma français » Agnès Varda revient avec un nouveau documentaire après sa nomination aux Oscar pour son formidable Visages, villages.",
+      "actors": [5]
+    }
+  },
+  {
+    "model": "movie.movie",
+    "pk": 3,
+    "fields": {
+      "title": "Grâce à Dieu",
+      "description": "Alexandre habite à Lyon avec sa femme et leurs enfants. Un jour, il découvre que le prêtre Bernard Preynat, qui l’a violé lors d’un camp scout quand il était petit, est encore en contact avec des enfants. Il commence une lutte pour la justice, avec deux autres victimes François et Emmanuel, en essayant de rassembler le plus grand nombre de témoignages possible. Mais cette lutte va aussi les mener à s’interroger sur leur vie, leurs relations et leur croyance et à affronter leurs familles. Ce film est basé sur une histoire vraie.",
+      "actors": [8, 9, 6, 7]
+    }
+  },
+  {
+    "model": "movie.movie",
+    "pk": 4,
+    "fields": {
+      "title": "Fête de famille",
+      "description": "« Aujourd’hui, c’est mon anniversaire et je voudrais qu’on ne parle que de choses joyeuses. » Andréa (Catherine Deneuve) ne sait pas encore que l’arrivée « surprise » de sa fille aînée, Claire, qui a disparu depuis trois ans et qui est désormais bien décidée à reprendre ce qu’on lui doit, va bousculer le programme et provoquer une querelle de famille pendant la fête des 70 ans d’Andréa. Ce casting choral exceptionnel dresse le portrait d’une famille dysfonctionnelle et co-dépendante, qui pousse les spectateurs à s’interroger sur leurs propres sagas familiales.",
+      "actors": [10, 11, 12, 13]
+    }
+  },
+  {
+    "model": "movie.movie",
+    "pk": 5,
+    "fields": {
+      "title": "It Must Be Heaven",
+      "description": "ES quitte la Palestine à la recherche d’une patrie alternative, pour se rendre compte que la Palestine le poursuit. La promesse d’une nouvelle vie se transforme en une comédie d’erreurs : où qu’il aille, de Paris à New York, quelque chose lui rappelle toujours ses origines. Du réalisateur primé Elia Suleiman, une saga comique qui explore l’identité, la nationalité et l’appartenance, dans laquelle Suleiman pose la question fondamentale : où est le lieu où l’on se sent vraiment chez soi ?",
+      "actors": [16, 17, 14, 15]
+    }
+  },
+  {
+    "model": "movie.movie",
+    "pk": 6,
+    "fields": {
+      "title": "Zombi Child​",
+      "description": "Haïti, 1962 : un homme revient d’entre les morts seulement pour être envoyé dans l’enfer des champs de canne à sucre. A Paris, 55 ans plus tard, dans le pensionnat prestigieux de la Légion d’Honneur, une jeune Haïtienne avoue un vieux secret de famille à un groupe de nouveaux amis, sans imaginer que cette histoire étrange va convaincre un camarade de classe au cœur brisé de commettre l’impensable.",
+      "actors": [18, 19, 20, 21]
+    }
+  }
+]

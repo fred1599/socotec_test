@@ -1,0 +1,50 @@
+[
+  {
+    "model": "review.review",
+    "pk": 1,
+    "fields": {
+      "grade": 5,
+      "movie": 1
+    }
+  },
+  {
+    "model": "review.review",
+    "pk": 2,
+    "fields": {
+      "grade": 5,
+      "movie": 2
+    }
+  },
+  {
+    "model": "review.review",
+    "pk": 3,
+    "fields": {
+      "grade": 5,
+      "movie": 3
+    }
+  },
+  {
+    "model": "review.review",
+    "pk": 4,
+    "fields": {
+      "grade": 5,
+      "movie": 4
+    }
+  },
+  {
+    "model": "review.review",
+    "pk": 5,
+    "fields": {
+      "grade": 5,
+      "movie": 6
+    }
+  },
+  {
+    "model": "review.review",
+    "pk": 6,
+    "fields": {
+      "grade": 5,
+      "movie": 5
+    }
+  }
+]
