@@ -21,12 +21,16 @@ def get_page_movie(request, n):
 
     movies_list = Movie.objects.values_list("title")
     number_of_movies = 0
+    movies_for_page = []
 
     if movies_list:
         movies = [v[0] for v in movies_list]
         number_of_movies = len(movies)
 
     pages = (number_of_movies // PAGINATION_BY) + 1
+
+    if n > pages:
+        n = 0
 
     if movies:
         movies_for_page = movies[n - 1 : (n - 1 + PAGINATION_BY)]
@@ -39,3 +43,13 @@ def get_page_movie(request, n):
     }
 
     return Response(json.dumps(data, ensure_ascii=False), status=status.HTTP_200_OK)
+
+
+def get_description(request, movie_name):
+    """Retourne la description du film
+
+    Args:
+        movie_name (str): nom du film à décrire
+    """
+
+    pass
