@@ -1,55 +1,35 @@
-import json
-
-from django.shortcuts import render
-
-from rest_framework import status
-from rest_framework.decorators import api_view
+from rest_framework.response import Response
+from rest_framework.pagination import PageNumberPagination
+from rest_framework import viewsets
 from rest_framework.response import Response
 
+from actor.models import Actor
+
 from .models import Movie
+from .serializers import MovieSerializer
 
-PAGINATION_BY = 5
+
+class StandardResultsSetPagination(PageNumberPagination):
+    page_size = 1
+    page_size_query_param = "page_size"
+    max_page_size = 2
+    page_query_param = "p"
 
 
-@api_view(["GET"])
-def get_page_movie(request, n):
-    """retourne tous les films de la page n
-
-    Args:
-        n (int): numéro de la page
+class MovieViewSet(viewsets.ViewSet):
+    """
+    Liste des films
     """
 
-    movies_list = Movie.objects.values_list("title")
-    number_of_movies = 0
-    movies_for_page = []
+    pagination_class = StandardResultsSetPagination
 
-    if movies_list:
-        movies = [v[0] for v in movies_list]
-        number_of_movies = len(movies)
-
-    pages = (number_of_movies // PAGINATION_BY) + 1
-
-    if n > pages:
-        n = 0
-
-    if movies:
-        movies_for_page = movies[n - 1 : (n - 1 + PAGINATION_BY)]
-
-    data = {
-        "nombre de pages": pages,
-        "nombre de films": number_of_movies,
-        "page": n,
-        "films": movies_for_page,
-    }
-
-    return Response(json.dumps(data, ensure_ascii=False), status=status.HTTP_200_OK)
-
-
-def get_description(request, movie_name):
-    """Retourne la description du film
-
-    Args:
-        movie_name (str): nom du film à décrire
-    """
-
-    pass
+    def list(self, request):
+        self.description = "Liste des films"
+        queryset = Movie.objects.all()
+        queryset.order_by("title")
+        serializer = MovieSerializer(queryset, many=True)
+        for entity in serializer.data:
+            pks_actors = entity["actors"]
+            actors = [str(actor) for actor in Actor.objects.filter(pk__in=pks_actors)]
+            entity["actors_names"] = actors
+        return Response(serializer.data)
