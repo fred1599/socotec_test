@@ -32,4 +32,5 @@ class MovieViewSet(viewsets.ViewSet):
             pks_actors = entity["actors"]
             actors = [str(actor) for actor in Actor.objects.filter(pk__in=pks_actors)]
             entity["actors_names"] = actors
+            del entity["actors"]
         return Response(serializer.data)
