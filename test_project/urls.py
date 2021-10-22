@@ -10,4 +10,5 @@ urlpatterns = [
     path("", RedirectView.as_view(url=reverse_lazy("admin:index"))),
     path("admin/", admin.site.urls),
     path("movie/", include("movie.urls")),
+    path("review/", include("review.urls")),
 ]

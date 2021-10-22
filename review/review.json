@@ -1,0 +1,37 @@
+[
+  {
+    "model": "review.review",
+    "pk": 1,
+    "fields": { "grade": 5, "movie": 1, "text": "" }
+  },
+  {
+    "model": "review.review",
+    "pk": 2,
+    "fields": { "grade": 5, "movie": 2, "text": "" }
+  },
+  {
+    "model": "review.review",
+    "pk": 3,
+    "fields": { "grade": 5, "movie": 3, "text": "" }
+  },
+  {
+    "model": "review.review",
+    "pk": 4,
+    "fields": { "grade": 5, "movie": 4, "text": "" }
+  },
+  {
+    "model": "review.review",
+    "pk": 5,
+    "fields": { "grade": 5, "movie": 6, "text": "" }
+  },
+  {
+    "model": "review.review",
+    "pk": 6,
+    "fields": { "grade": 5, "movie": 5, "text": "" }
+  },
+  {
+    "model": "review.review",
+    "pk": 14,
+    "fields": { "grade": 3, "movie": 5, "text": "C'est un super film" }
+  }
+]

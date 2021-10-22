@@ -9,7 +9,8 @@ class Review(models.Model):
     grade = models.PositiveIntegerField(
         default=5, validators=[MinValueValidator(1), MaxValueValidator(5)]
     )
-    movie = models.OneToOneField(to=Movie, on_delete=models.CASCADE)
+    movie = models.ForeignKey(to=Movie, on_delete=models.CASCADE)
+    text = models.TextField(blank=True)
 
     def __str__(self):
-        return f"{self.movie} - moyenne {self.grade}"
+        return f"Avis sur {self.movie}"
