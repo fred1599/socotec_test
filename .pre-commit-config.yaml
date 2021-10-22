@@ -52,7 +52,7 @@ repos:
     rev: 1.7.0
     hooks:
       - id: bandit
-        args: [-l, --recursive, -x, tests]
+        args: [-l, --recursive, -x, tests, --skip, "B101", --recursive, clumper]
         files: .py$
   - repo: git://github.com/Lucas-C/pre-commit-hooks
     rev: v1.1.7

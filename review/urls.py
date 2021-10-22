@@ -21,6 +21,8 @@ schema_view = get_schema_view(
 )
 
 urlpatterns = [
-    path("review_add/", ReviewViewSet.as_view({"post": "add_review"})),
+    path(
+        "review_add/", ReviewViewSet.as_view({"post": "add_review"}), name="add_review"
+    ),
     path("redoc/", schema_view.with_ui("redoc", cache_timeout=0), name="schema-redoc"),
 ]
