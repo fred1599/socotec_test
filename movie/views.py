@@ -1,11 +1,12 @@
 from rest_framework.pagination import PageNumberPagination
 from rest_framework import viewsets
 from rest_framework.response import Response
+from rest_framework.serializers import Serializer
 
 from actor.models import Actor
 
 from .models import Movie
-from .serializers import MovieSerializer
+from .serializers import MovieSerializer, DetailMovieSerializer
 
 
 class StandardResultsSetPagination(PageNumberPagination):
@@ -21,15 +22,15 @@ class MovieViewSet(viewsets.ViewSet):
     """
 
     pagination_class = StandardResultsSetPagination
+    description = "Liste des films"
+    serializer_class = MovieSerializer
+    queryset = Movie.objects.all()
 
-    def list(self, request):
-        self.description = "Liste des films"
-        queryset = Movie.objects.all()
-        queryset.order_by("title")
-        serializer = MovieSerializer(queryset, many=True)
-        for entity in serializer.data:
-            pks_actors = entity["actors"]
-            actors = [str(actor) for actor in Actor.objects.filter(pk__in=pks_actors)]
-            entity["actors_names"] = actors
-            del entity["actors"]
+    def get(self, request):
+        serializer = MovieSerializer(self.queryset, many=True)
+        return Response(serializer.data)
+
+    def get_detail(self, request, pk):
+        movie = Movie.objects.get(pk=pk)
+        serializer = DetailMovieSerializer(instance=movie)
         return Response(serializer.data)

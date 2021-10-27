@@ -8,7 +8,7 @@ from .serializers import ReviewSerializer
 
 
 class ReviewViewSet(viewsets.ViewSet):
-    def add_review(self, request):
+    def add_review(self, request, pk):
         """Ajout et notation d'un avis sur un film
 
         Args:
@@ -17,19 +17,12 @@ class ReviewViewSet(viewsets.ViewSet):
         Returns:
             [str]: retourne un json
         """
-        error = {
-            "status": 400,
-            "message": "erreur dans la mise en forme de votre requête",
-        }
-        name = request.data.get("name")
         self.description = "Ajouter un film"
         review = ReviewSerializer(data=request.data)
-        if review.is_valid():
-            data = review._validated_data
-            movie = Movie.objects.get(title=name)
-            Review.objects.get_or_create(
-                grade=data["grade"], text=data["text"], movie=movie
-            )
-            error["status"] = 200
-            error["message"] = "Votre avis a bien été enregistré"
-        return Response(error)
+        review.is_valid(raise_exception=True)
+        data = review.validated_data
+        movie = Movie.objects.get(pk=pk)
+        Review.objects.create(grade=data["grade"], text=data["text"], movie=movie)
+        return Response(
+            data
+        )  # TODO Créer un sérializer pour informer réponse utilisateur

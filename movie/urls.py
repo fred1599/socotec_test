@@ -8,6 +8,10 @@ from drf_yasg import openapi
 
 from .views import MovieViewSet
 
+from rest_framework.routers import DefaultRouter
+
+router = DefaultRouter()
+
 schema_view = get_schema_view(
     openapi.Info(
         title="Snippets API",
@@ -21,6 +25,7 @@ schema_view = get_schema_view(
 )
 
 urlpatterns = [
-    path("list/", MovieViewSet.as_view({"get": "list"})),
+    path("list/", MovieViewSet.as_view({"get": "get"})),
     path("redoc/", schema_view.with_ui("redoc", cache_timeout=0), name="schema-redoc"),
+    path("detail/<int:pk>/", MovieViewSet.as_view({"get": "get_detail"})),
 ]
