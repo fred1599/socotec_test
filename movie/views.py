@@ -1,9 +1,7 @@
 from rest_framework.pagination import PageNumberPagination
 from rest_framework import viewsets
 from rest_framework.response import Response
-from rest_framework.serializers import Serializer
 
-from actor.models import Actor
 
 from .models import Movie
 from .serializers import MovieSerializer, DetailMovieSerializer
