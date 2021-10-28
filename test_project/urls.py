@@ -1,9 +1,5 @@
 from django.contrib import admin
-
-from django.urls import path
-from django.urls import include
-from django.urls import reverse_lazy
-
+from django.urls import include, path, reverse_lazy
 from django.views.generic.base import RedirectView
 
 urlpatterns = [

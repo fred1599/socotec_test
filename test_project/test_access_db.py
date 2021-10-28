@@ -1,10 +1,10 @@
-import pytest
 import uuid
 
+import pytest
 from django.urls import reverse
 
-from movie.models import Movie
 from actor.models import Actor
+from movie.models import Movie
 
 
 @pytest.fixture

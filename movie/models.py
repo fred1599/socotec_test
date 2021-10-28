@@ -1,7 +1,7 @@
 from django.db import models
-from actor.models import Actor
-
 from django.db.models import Avg
+
+from actor.models import Actor
 
 
 class Movie(models.Model):

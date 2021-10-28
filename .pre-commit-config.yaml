@@ -83,3 +83,14 @@ repos:
           - --remove-all-unused-imports
           - --remove-duplicate-keys
           - --remove-unused-variables
+  - repo: https://github.com/hadialqattan/pycln
+    rev: v0.0.1-beta.3
+    hooks:
+      - id: pycln
+        args: [--config=pyproject.toml]
+  - repo: https://github.com/pycqa/isort
+    rev: 5.5.4
+    hooks:
+      - id: isort
+        files: "\\.(py)$"
+        args: [--settings-path=pyproject.toml]
